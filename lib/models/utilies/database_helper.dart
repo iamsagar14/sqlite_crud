@@ -61,14 +61,14 @@ class DatabaseHelper {
         where: '${Contact.colID}=?', whereArgs: [id]);
   }
 
-//fetching data into the database
-  //Future<List<Contact>> fetchContact() async {
-  //Database? db = await database;
-  //List<Map> contacts = await db!.query(Contact.tblContact);
-  //if (contacts.isEmpty) {
-  //return [];
-  //} else {
-  //return contacts.map((e) => Contact.fromMap(e)).toList();
+  // fetching data into the database
+  Future<List<Contact>> fetchContact() async {
+    Database? db = await database;
+    List<Map> contacts = await db!.query(Contact.tblContact);
+    if (contacts.isEmpty) {
+      return [];
+    } else {
+      return contacts.map((val) => Contact.fromMap()).toList();
+    }
+  }
 }
-//}
-//}
