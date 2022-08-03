@@ -7,12 +7,15 @@ import 'package:sqliteconcept/models/contact.dart';
 class DatabaseHelper {
   static const _databasename = 'contactData.db';
   static const _databaseversion = 1;
+
   //singleton class
 
   DatabaseHelper._();
+
   static final DatabaseHelper instance = DatabaseHelper._();
 
   static Database? _database;
+
   Future<Database?> get database async {
     if (_database != null) {
       return _database;
@@ -35,7 +38,8 @@ class DatabaseHelper {
     CREATE TABLE ${Contact.tblContact} ( 
     ${Contact.colID} INTEGER PRIMARY KEY AUTOINCREMENT,
     ${Contact.colName} TEXT NOT NULL,
-    ${Contact.colMobile} TEXT NOT NULL, 
+    ${Contact.colMobile} TEXT NOT NULL
+     
     )
       
     ''');
@@ -68,7 +72,7 @@ class DatabaseHelper {
     if (contacts.isEmpty) {
       return [];
     } else {
-      return contacts.map((val) => Contact.fromMap()).toList();
+      return contacts.map((e) => Contact.fromMap(e)).toList();
     }
   }
 }

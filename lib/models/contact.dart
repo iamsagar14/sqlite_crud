@@ -6,7 +6,7 @@ class Contact {
 
   Contact({this.id, this.name, this.mobile});
 
-  Contact.fromMap(Map<String, dynamic> map) {
+  Contact.fromMap(Map<dynamic, dynamic> map) {
     id = map[colID];
     name = map[colName];
     mobile = map[colMobile];
